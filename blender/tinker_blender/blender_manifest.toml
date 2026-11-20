@@ -1,0 +1,13 @@
+schema_version = "1.0.0"
+id = "tinker_blender"
+version = "0.1.0"
+name = "tinker"
+tagline = "watch. practice. learn"
+maintainer = "AprewaTurkson Inc."
+type = "add-on"
+blender_version_min = "4.2.0"
+license = ["SPDX:MIT"]
+tags = ["Animation", "Object"]
+[permissions]
+network = "Loopback only, to reach the local tinker service"
+files = "Reads the per-install tinker token"

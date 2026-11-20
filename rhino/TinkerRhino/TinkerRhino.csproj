@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- RhinoCommon plug-in (.rhp) for Rhino 8 on Windows and macOS. Compiles on Linux against the RhinoCommon NuGet
+       reference assemblies; it can only RUN inside Rhino (not available on Linux). -->
+  <PropertyGroup>
+    <SuppressImplicitGitSourceLink>true</SuppressImplicitGitSourceLink>
+    <TargetFrameworks>net48;net7.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <Version>0.1.0</Version>
+    <AssemblyName>TinkerRhino</AssemblyName>
+    <TargetExt>.rhp</TargetExt>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <NoWarn>$(NoWarn);NU1701;CA1416</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="RhinoCommon" Version="8.36.26296.17001" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" Condition="'$(TargetFramework)' == 'net48'" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" Condition="'$(TargetFramework)' == 'net48'" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../TinkerWink.Core/TinkerWink.Core.csproj" />
+  </ItemGroup>
+</Project>

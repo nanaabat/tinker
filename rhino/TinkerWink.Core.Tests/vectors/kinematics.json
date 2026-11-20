@@ -1,0 +1,594 @@
+{
+ "scene": {
+  "schema_version": "1.0.0",
+  "scene_id": "fixture-room",
+  "units": "m",
+  "coordinate_system": {
+   "up": "z",
+   "handedness": "right"
+  },
+  "host": {
+   "name": "fixture",
+   "version": "0.1.0"
+  },
+  "objects": [
+   {
+    "id": "room",
+    "host_id": "room",
+    "name": "room",
+    "type": "room",
+    "parent_id": null,
+    "pose": {
+     "position": [
+      2.0,
+      2.5,
+      1.35
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     4.0,
+     5.0,
+     2.7
+    ],
+    "geometry_ref": "box",
+    "collision": false,
+    "joints": []
+   },
+   {
+    "id": "floor",
+    "host_id": "floor",
+    "name": "floor",
+    "type": "floor",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      2.0,
+      2.5,
+      -0.05
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     4.2,
+     5.2,
+     0.1
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "wall-north",
+    "host_id": "wall-north",
+    "name": "wall north",
+    "type": "wall",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      2.0,
+      5.05,
+      1.35
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     4.2,
+     0.1,
+     2.7
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "wall-east",
+    "host_id": "wall-east",
+    "name": "wall east",
+    "type": "wall",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      4.05,
+      2.5,
+      1.35
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     0.1,
+     5.0,
+     2.7
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "wall-west",
+    "host_id": "wall-west",
+    "name": "wall west",
+    "type": "wall",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      -0.05,
+      2.5,
+      1.35
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     0.1,
+     5.0,
+     2.7
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "wall-south-left",
+    "host_id": "wall-south-left",
+    "name": "wall south left",
+    "type": "wall",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      0.5499999999999999,
+      -0.05,
+      1.35
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     1.3,
+     0.1,
+     2.7
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "wall-south-right",
+    "host_id": "wall-south-right",
+    "name": "wall south right",
+    "type": "wall",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      3.4499999999999997,
+      -0.05,
+      1.35
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     1.2999999999999998,
+     0.1,
+     2.7
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "wall-south-below",
+    "host_id": "wall-south-below",
+    "name": "wall south below",
+    "type": "wall",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      2.0,
+      -0.05,
+      0.45
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     1.6,
+     0.1,
+     0.9
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "wall-south-above",
+    "host_id": "wall-south-above",
+    "name": "wall south above",
+    "type": "wall",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      2.0,
+      -0.05,
+      2.5
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     1.6,
+     0.1,
+     0.40000000000000036
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "window-south",
+    "host_id": "window-south",
+    "name": "window south",
+    "type": "window",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      2.0,
+      -0.05,
+      1.5999999999999999
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     1.6,
+     0.01,
+     1.4
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": []
+   },
+   {
+    "id": "blind-south",
+    "host_id": "blind-south",
+    "name": "blind south",
+    "type": "blind",
+    "parent_id": "window-south",
+    "pose": {
+     "position": [
+      2.0,
+      -0.3816401549960047,
+      1.633497633155795
+     ],
+     "rotation": [
+      0.9887710779360422,
+      -0.14943813247359922,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     1.7000000000000002,
+     0.02,
+     1.5
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": [
+     {
+      "name": "tilt",
+      "kind": "revolute",
+      "axis": [
+       -1.0,
+       0.0,
+       0.0
+      ],
+      "anchor": [
+       0.0,
+       0.0,
+       0.75
+      ],
+      "lower": 0.0,
+      "upper": 1.4486232791552935,
+      "max_speed": 0.6,
+      "max_force": 40.0,
+      "value": 0.3
+     }
+    ]
+   },
+   {
+    "id": "panel-sliding",
+    "host_id": "panel-sliding",
+    "name": "panel sliding",
+    "type": "sliding_panel",
+    "parent_id": "room",
+    "pose": {
+     "position": [
+      1.15,
+      2.5,
+      1.12
+     ],
+     "rotation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "size": [
+     1.2,
+     0.05,
+     2.2
+    ],
+    "geometry_ref": "box",
+    "collision": true,
+    "joints": [
+     {
+      "name": "slide",
+      "kind": "prismatic",
+      "axis": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "anchor": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "lower": 0.0,
+      "upper": 2.0,
+      "max_speed": 0.5,
+      "max_force": 200.0,
+      "value": 0.4
+     }
+    ]
+   }
+  ],
+  "constraints": []
+ },
+ "cases": [
+  {
+   "object_id": "blind-south",
+   "joint": "tilt",
+   "value": 0,
+   "pose": {
+    "position": [
+     2.0,
+     -0.16000000000000003,
+     1.5999999999999999
+    ],
+    "rotation": [
+     0.9999999999999999,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "blind-south",
+   "joint": "tilt",
+   "value": 0.1,
+   "pose": {
+    "position": [
+     2.0,
+     -0.23487506248512116,
+     1.6037468760414804
+    ],
+    "rotation": [
+     0.9987502603949663,
+     -0.049979169270678345,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "blind-south",
+   "joint": "tilt",
+   "value": 0.5,
+   "pose": {
+    "position": [
+     2.0,
+     -0.5195691539531523,
+     1.69181307858222
+    ],
+    "rotation": [
+     0.9689124217106448,
+     -0.24740395925452294,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "blind-south",
+   "joint": "tilt",
+   "value": 1.0,
+   "pose": {
+    "position": [
+     2.0,
+     -0.7911032386059224,
+     1.944773270598895
+    ],
+    "rotation": [
+     0.8775825618903726,
+     -0.479425538604203,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "blind-south",
+   "joint": "tilt",
+   "value": 1.4,
+   "pose": {
+    "position": [
+     2.0,
+     -0.8990872974913452,
+     2.222524642824819
+    ],
+    "rotation": [
+     0.7648421872844884,
+     -0.644217687237691,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "blind-south",
+   "joint": "tilt",
+   "value": 1.4486232791552935,
+   "pose": {
+    "position": [
+     2.0,
+     -0.9044096137309916,
+     2.258597992446139
+    ],
+    "rotation": [
+     0.7489557207890022,
+     -0.6626200482157375,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "panel-sliding",
+   "joint": "slide",
+   "value": 0,
+   "pose": {
+    "position": [
+     0.7499999999999999,
+     2.5,
+     1.12
+    ],
+    "rotation": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "panel-sliding",
+   "joint": "slide",
+   "value": 0.25,
+   "pose": {
+    "position": [
+     0.9999999999999999,
+     2.5,
+     1.12
+    ],
+    "rotation": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "panel-sliding",
+   "joint": "slide",
+   "value": 0.9,
+   "pose": {
+    "position": [
+     1.65,
+     2.5,
+     1.12
+    ],
+    "rotation": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "panel-sliding",
+   "joint": "slide",
+   "value": 1.5,
+   "pose": {
+    "position": [
+     2.25,
+     2.5,
+     1.12
+    ],
+    "rotation": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "object_id": "panel-sliding",
+   "joint": "slide",
+   "value": 2.0,
+   "pose": {
+    "position": [
+     2.75,
+     2.5,
+     1.12
+    ],
+    "rotation": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  }
+ ]
+}

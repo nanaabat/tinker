@@ -1,0 +1,386 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "scene_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "object_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+      },
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "samples": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Sample"
+      },
+      "maxItems": 100000
+    },
+    "goal": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "joint": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "target_value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "object_id",
+        "joint",
+        "target_value"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "boolean"
+        ]
+      },
+      "maxProperties": 64
+    },
+    "user_corrections": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+      },
+      "maxItems": 1000
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "scene_id",
+    "object_ids",
+    "samples",
+    "goal",
+    "context",
+    "user_corrections"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:tinker:schema:Demonstration",
+  "title": "Demonstration",
+  "$defs": {
+    "Pose": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "rotation": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "position",
+        "rotation"
+      ],
+      "additionalProperties": false,
+      "title": "Pose"
+    },
+    "Joint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "kind": {
+          "enum": [
+            "prismatic",
+            "revolute"
+          ]
+        },
+        "axis": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "anchor": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "lower": {
+          "type": "number"
+        },
+        "upper": {
+          "type": "number"
+        },
+        "max_speed": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "max_force": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "kind",
+        "axis",
+        "anchor",
+        "lower",
+        "upper",
+        "max_speed",
+        "max_force",
+        "value"
+      ],
+      "additionalProperties": false,
+      "title": "Joint"
+    },
+    "SceneObject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "host_id": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "type": {
+          "enum": [
+            "room",
+            "floor",
+            "wall",
+            "window",
+            "blind",
+            "sliding_panel",
+            "obstacle",
+            "generic"
+          ]
+        },
+        "parent_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 128
+        },
+        "pose": {
+          "$ref": "#/$defs/Pose"
+        },
+        "size": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "geometry_ref": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "collision": {
+          "type": "boolean"
+        },
+        "joints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Joint"
+          },
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "id",
+        "host_id",
+        "name",
+        "type",
+        "parent_id",
+        "pose",
+        "size",
+        "collision",
+        "joints"
+      ],
+      "additionalProperties": false,
+      "title": "SceneObject"
+    },
+    "Constraint": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "kind": {
+          "enum": [
+            "no_go_volume",
+            "travel_bounds",
+            "max_speed",
+            "dependency"
+          ]
+        },
+        "object_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "maxItems": 64
+        },
+        "min": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "max": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "object_ids"
+      ],
+      "additionalProperties": false,
+      "title": "Constraint"
+    },
+    "Violation": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "enum": [
+            "collision",
+            "joint_limit",
+            "speed_limit",
+            "force_limit",
+            "no_go_volume",
+            "unreachable_goal",
+            "missing_geometry",
+            "stale_scene",
+            "not_applicable"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "t": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "object_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "maxItems": 64
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "t",
+        "object_ids"
+      ],
+      "additionalProperties": false,
+      "title": "Violation"
+    },
+    "Sample": {
+      "type": "object",
+      "properties": {
+        "t": {
+          "type": "number",
+          "minimum": 0
+        },
+        "poses": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Pose"
+          },
+          "maxProperties": 64
+        },
+        "action": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 128
+        },
+        "event": {
+          "enum": [
+            "sample",
+            "edit",
+            "undo",
+            "redo"
+          ]
+        }
+      },
+      "required": [
+        "t",
+        "poses",
+        "action",
+        "event"
+      ],
+      "additionalProperties": false,
+      "title": "Sample"
+    }
+  }
+}

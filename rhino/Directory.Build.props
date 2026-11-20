@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <SuppressImplicitGitSourceLink>true</SuppressImplicitGitSourceLink>
+    <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
+    <EnableSourceLink>false</EnableSourceLink>
+  </PropertyGroup>
+</Project>

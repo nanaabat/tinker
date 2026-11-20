@@ -1,0 +1,13 @@
+[project]
+name = "tw-connector"
+version = "0.1.0"
+description = "connector-sdk: host adapter interface, capability negotiation, mock host"
+requires-python = ">=3.11"
+dependencies = ["tw-scene"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["tw_connector"]

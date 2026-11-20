@@ -1,0 +1,16 @@
+[project]
+name = "tinker-service"
+version = "0.1.0"
+description = "tinker local service: learning, simulation, preview over an in-process API or authenticated loopback HTTP"
+requires-python = ">=3.11"
+dependencies = ["tw-contracts", "tw-scene", "tw-action", "tw-sim", "tw-connector", "tinker-learning[train]"]
+
+[project.scripts]
+tinker-service = "tinker_service.http:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["tinker_service"]

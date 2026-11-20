@@ -1,0 +1,2 @@
+build: dotnet build apps/tinker-rhino/TinkerRhino/TinkerRhino.csproj -c Release
+test:  dotnet test apps/tinker-rhino/TinkerWink.Core.Tests -c Release

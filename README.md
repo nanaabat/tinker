@@ -35,7 +35,9 @@ then in blender: edit, preferences, get extensions, install from disk, and pick 
 
 ## status
 
-early. the blender extension and service run end to end on a test scene. the rhino plug in compiles but has not been run inside rhino. tinker learns one joint at a time.
+experimental and early. expect rough edges and changes, and check every result yourself. no trained skills or weights ship with it; tinker learns from your own demonstrations.
+
+ the blender extension and service run end to end on a test scene. the rhino plug in compiles but has not been run inside rhino. tinker learns one joint at a time.
 
 ## family
 
